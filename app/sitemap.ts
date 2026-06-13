@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://contribute-solana.vercel.app/',
+      url: 'https://solanaoss.com/',
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,

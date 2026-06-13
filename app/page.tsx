@@ -59,7 +59,35 @@ async function ProjectsDashboard() {
     };
   }
 
-  return <Dashboard data={data} />;
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Solana Open Source Repositories",
+    description:
+      "A curated, continuously updated index of active Solana open-source repositories to contribute to.",
+    url: "https://solanaoss.com/",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: data.projects.length,
+      itemListElement: data.projects.slice(0, 100).map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: p.url,
+        name: p.name,
+        description: p.summary || p.description || undefined,
+      })),
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+      <Dashboard data={data} />
+    </>
+  );
 }
 
 export default function Home() {

@@ -112,6 +112,26 @@ export function Dashboard({ data }: DashboardProps) {
 
       <main className="flex-1 px-4 sm:px-8 py-6 pb-32">
         <div className="max-w-8xl mx-auto">
+          <section className="mb-6 border-b border-white/10 pb-5">
+            <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tighter uppercase mb-2">
+              Solana Open Source Repositories
+            </h1>
+            <p className="text-[13px] sm:text-sm text-muted leading-relaxed max-w-3xl">
+              Discover and contribute to the most active open-source projects in the
+              Solana ecosystem. Contribute is a curated, continuously updated index of{" "}
+              <span className="text-white font-semibold">{data.projects.length}</span>{" "}
+              Solana GitHub repositories &mdash; spanning DeFi, NFTs, infrastructure,
+              SDKs, developer tools, wallets, and governance &mdash; with live stars,
+              open issues, and pull requests to help you find your next contribution.
+            </p>
+            {allCategories.length > 0 && (
+              <p className="text-[11px] text-muted-2 uppercase tracking-widest mt-3">
+                Browse by category: {allCategories.join(" · ")}
+              </p>
+            )}
+          </section>
+
+          <h2 className="sr-only">Indexed Solana open source repositories</h2>
           {filteredProjects.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
               <AnimatePresence>

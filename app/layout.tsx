@@ -13,46 +13,72 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://solanaoss.com";
+const TITLE = "Solana Open Source Repositories to Contribute To — Contribute";
+const DESCRIPTION =
+  "Browse a live, curated index of active Solana open-source repositories — DeFi, NFT, infrastructure, SDKs, wallets, and developer tools to contribute to on GitHub.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://contribute-solana.vercel.app/"),
-  title: "Solana Contribute — The Superteam Open Source Index",
-  description: "High-density index of active repositories on Solana",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: "%s — Solana Open Source Index",
+  },
+  description: DESCRIPTION,
+  applicationName: "Contribute",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
-    "Solana",
-    "Open Source",
-    "Blockchain",
+    "Solana open source repositories",
+    "Solana open source projects",
+    "contribute to Solana",
+    "Solana GitHub projects",
+    "Solana repositories",
+    "active Solana repos",
+    "open source Solana",
+    "Solana DeFi open source",
+    "Solana developer tools",
+    "Anchor",
     "Rust",
     "Web3",
-    "Contribute",
-    "Developer Tools",
     "Superteam",
     "Solana Foundation",
   ],
   authors: [{ name: "Superteam" }],
+  category: "technology",
   openGraph: {
-    title: "Solana Contribute — The Superteam Open Source Index",
-    description: "High-density index of active repositories on Solana",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
     type: "website",
     locale: "en_US",
-    siteName: "Superteam Contribute",
+    siteName: "Contribute — Solana Open Source Index",
     images: [
       {
         url: "/OG/OG2.png",
         width: 1200,
         height: 630,
-        alt: "Solana Contribute Dashboard",
+        alt: "Solana Open Source Repositories Index",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Solana Contribute — The Superteam Open Source Index",
-    description: "High-density index of active repositories on Solana",
+    title: TITLE,
+    description: DESCRIPTION,
     images: ["/OG/OG2.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -93,14 +119,16 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Solana Contribute",
-              "url": "https://contribute-solana.vercel.app/",
-              "description": "Discover high-impact open-source projects on Solana.",
-              "potentialAction": {
+              name: "Solana Contribute",
+              url: "https://solanaoss.com/",
+              description:
+                "Discover high-impact open-source projects on Solana.",
+              potentialAction: {
                 "@type": "SearchAction",
-                "target": "https://contribute-solana.vercel.app/?search={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
+                target:
+                  "https://solanaoss.com/?search={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
             }),
           }}
         />

@@ -22,9 +22,9 @@ export function TopBar({ projectsCount }: TopBarProps) {
                 alt="Solana Logo"
               />
             </div>
-            <h1 className="text-lg font-bold text-white tracking-tighter uppercase">
+            <span className="text-lg font-bold text-white tracking-tighter uppercase">
               CONTRIBUTE
-            </h1>
+            </span>
           </div>
           <p className="text-[10px] sm:text-[11px] text-muted-2 uppercase tracking-tight font-medium">
             High-density index of active repositories on Solana
